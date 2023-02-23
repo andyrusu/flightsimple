@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://chswkogclfy4y"]
+
+[ext_resource type="FontFile" uid="uid://bnn6b5a3xeokb" path="res://assets/Themes/Fonts/Kenney Bold.ttf" id="1_0jytl"]
+[ext_resource type="Texture2D" uid="uid://5jj06va6vo1w" path="res://assets/UI/blue_button00.png" id="2_dv17a"]
+[ext_resource type="Texture2D" uid="uid://265osek8eurh" path="res://assets/UI/blue_button01.png" id="3_1q16w"]
+[ext_resource type="Texture2D" uid="uid://dpxygv7oigsl2" path="res://assets/UI/red_button11.png" id="4_0all2"]
+[ext_resource type="Texture2D" uid="uid://cna5tg6c241ir" path="res://assets/UI/red_button12.png" id="5_572ex"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 179.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.168627, 0.384314, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("1_0jytl")
+theme_override_font_sizes/font_size = 50
+text = "SimpleFlight"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -124.0
+offset_right = 175.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="NewGameButton" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+texture_normal = ExtResource("2_dv17a")
+texture_pressed = ExtResource("3_1q16w")
+stretch_mode = 5
+
+[node name="NewGameLabel" type="Label" parent="Buttons/NewGameButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.5
+offset_top = -24.5
+offset_right = 110.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("1_0jytl")
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+
+[node name="ResumeGame" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+texture_normal = ExtResource("2_dv17a")
+texture_pressed = ExtResource("3_1q16w")
+stretch_mode = 5
+
+[node name="ResumeGameLabel" type="Label" parent="Buttons/ResumeGame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -13.5
+offset_right = 83.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_0jytl")
+theme_override_font_sizes/font_size = 25
+text = "Resume Game"
+
+[node name="ExitGame" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_0all2")
+texture_pressed = ExtResource("5_572ex")
+stretch_mode = 5
+
+[node name="ExitGameLabel" type="Label" parent="Buttons/ExitGame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -13.5
+offset_right = 63.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_0jytl")
+theme_override_font_sizes/font_size = 25
+text = "Exit Game"
