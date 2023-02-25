@@ -3,6 +3,8 @@ extends CharacterBody2D
 var is_mouse_pressed = false
 var is_moving = false
 
+var weapon = "SingleBlast"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_use_accumulated_input(false)
