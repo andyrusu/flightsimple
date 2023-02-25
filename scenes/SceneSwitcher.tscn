@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmdg8oapm7gfo"]
+
+[ext_resource type="Script" path="res://scenes/SceneSwitcher.gd" id="1_moeit"]
+[ext_resource type="PackedScene" uid="uid://chswkogclfy4y" path="res://scenes/MainMenu.tscn" id="1_p2xbl"]
+
+[node name="SceneSwitcher" type="Node"]
+script = ExtResource("1_moeit")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_p2xbl")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
