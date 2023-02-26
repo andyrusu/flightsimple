@@ -12,3 +12,5 @@ polygon = PackedVector2Array(-39, 12, -10, 12, -10, 20, -4, 20, -4, 28, 4, 28, 4
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.75, 2.75)
 texture = ExtResource("1_7eirg")
+
+[node name="FireRate" type="Timer" parent="."]

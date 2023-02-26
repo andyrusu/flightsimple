@@ -1,13 +1,26 @@
 extends CharacterBody2D
 
-var is_mouse_pressed = false
-var is_moving = false
+@onready var fireRate = $FireRate
 
-var weapon = "SingleBlast"
+var is_mouse_pressed:bool = false
+var is_moving:bool = false
+
+var currentWeapon:String = "SingleBlast"
+var weaponDetails:Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Setting up input
 	Input.set_use_accumulated_input(false)
+	
+	#Setting up database
+	var database = TextDatabase.new()
+	database.load_from_path("res://res/weapons.cfg")
+	
+	#Setting up weapon
+	weaponDetails = database.get_dictionary().get(currentWeapon)
+	fireRate.wait_time = weaponDetails.get("fireRate", 10)
+	fireRate.timeout.connect(fire)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -31,4 +44,4 @@ func move_check_stop():
 		set_velocity(velocity.lerp(Vector2.ZERO, 0.25))
 
 func fire():
-	pass
+	print(weaponDetails.get("fireRate", 10))
