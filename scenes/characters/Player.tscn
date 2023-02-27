@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scenes/characters/Player.gd" id="1_o5vvx"]
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_o5vvx")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
