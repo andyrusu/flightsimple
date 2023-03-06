@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://s5raeed7rmsy"]
+
+[ext_resource type="Script" path="res://scenes/characters/Enemy.gd" id="1_s4jcy"]
+[ext_resource type="Texture2D" uid="uid://tm2tkbsmu66j" path="res://assets/Ships/ship_0005.png" id="2_64ygj"]
+
+[node name="BasicRed" type="CharacterBody2D"]
+z_index = 1
+motion_mode = 1
+script = ExtResource("1_s4jcy")
+speed = 100
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-37, 1, -37, -15, -7, -15, -7, -21, 7, -21, 7, -15, 37, -15, 37, 2, 9, 2, 9, 23, -10, 23, -10, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.75, 2.75)
+texture = ExtResource("2_64ygj")
+
+[node name="FireRate" type="Timer" parent="."]
+wait_time = 10.0

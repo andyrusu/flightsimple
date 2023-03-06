@@ -17,4 +17,7 @@ func spawnPlayer(playerNode:CharacterBody2D):
 	playerNode.position = playerInitialPosition
 	var tween = playerNode.create_tween().set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property(playerNode, "position", playerSpawnPosition, playerSpawnSpeed)
-	tween.finished.connect(playerNode.fire)
+	tween.finished.connect(startLevel)
+
+func startLevel():
+	get_tree().call_group("chars", "start")

@@ -1,26 +1,12 @@
-extends CharacterBody2D
+extends Character
 
-var is_mouse_pressed:bool = false
 var is_moving:bool = false
-
-var currentWeapon:String = "SingleBlast"
-var weaponDetails:Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Setting up input
 	Input.set_use_accumulated_input(false)
-	
-	#Setting up database
-	var database = TextDatabase.new()
-	database.load_from_path("res://res/weapons.cfg")
-	
-	#Setting up weapon
-	weaponDetails = database.get_dictionary().get(currentWeapon)
-	var currentWeaponNode = load("res://scenes/weapons/" + currentWeapon + ".tscn").instantiate()
-	print(weaponDetails.get("fireRate", 10))
-	$FireRate.wait_time = weaponDetails.get("fireRate", 10)
-	$FireRate.timeout.connect(fire)
+	super._ready()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,24 +14,19 @@ func _process(delta):
 	move_check_stop()
 
 func _unhandled_input(event):
-	if event.is_action_pressed("move"):
-		is_mouse_pressed = true
-	if event.is_action_released("move"):
-		is_mouse_pressed = false
-		
-	if event is InputEventMouseMotion && is_mouse_pressed:
+	if event is InputEventScreenDrag:
 		is_moving = true
 		set_velocity(event.velocity)
 
 func move_check_stop():
-	move_and_slide()
+	var direction:Vector2 = Vector2.ZERO
+	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+		
+	if direction != Vector2.ZERO:
+		set_velocity(speed * direction)
+	
 	if !is_moving:
 		set_velocity(velocity.lerp(Vector2.ZERO, 0.25))
-
-func fire():
-	var weaponNode = load("res://scenes/weapons/" + currentWeapon + ".tscn").instantiate()
-	weaponNode.position = position
-	get_parent().add_child(weaponNode)
 	
-	if $FireRate.is_stopped():
-		$FireRate.start()
+	move_and_slide()
